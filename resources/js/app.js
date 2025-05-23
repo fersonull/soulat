@@ -1,9 +1,10 @@
 import './bootstrap';
 import { createIcons, icons } from 'lucide';
-import Alpine from 'alpinejs'
+import Support from './Support.js';
+import Alpine from 'alpinejs';
 
-window.Alpine = Alpine
-Alpine.start()
+window.Alpine = Alpine;
+Alpine.start();
 
 createIcons({ icons });
 
@@ -23,4 +24,8 @@ window.addEventListener("scroll", function() {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 }, false);
 
+
+Support.get('image')?.addEventListener('change', (e) => {
+    Support.previewImage(e)
+})
 
