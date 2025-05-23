@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center mb-8">
+<div class="flex flex-col items-center justify-center mb-8 border-b">
     <div class="flex flex-col items-start w-full">
-        <a href="{{ $attributes->get('href') }}" class="text-2xl poppins-bold mb-1">
+        <a href="{{ $attributes->get('href') }}" class="poppins-bold font-bold text-2xl mb-1">
             {{ $title }}
         </a>
 
@@ -8,8 +8,8 @@
             <div class="rounded-full overflow-hidden w-10 h-10">
                 <img src="https://placehold.co/100" alt="">
             </div>
-            <div class="flex flex-col items-start">
-                <a href="" class="font-sans font-extrabold">
+            <div class="flex flex-col inter-regular text-sm items-start">
+                <a href="" class="font-bold">
                     {{ $author }}
                 </a>
                 <p class="text-sm text-stone-400">
@@ -18,12 +18,13 @@
             </div>
         </div>
 
-        <div class="w-full overflow-hidden mb-5">
-            <p>{{ strlen($body) > 140 ?  mb_strimwidth($body, 0, 140, '...') : $body}}</p>
+        <div class="w-full overflow-hidden mb-5 inter-regular text-sm">
+            <p class="md:hidden">{{ strlen($body) > 110 ?  mb_strimwidth($body, 0, 110, '...') : $body}}</p>
+            <p class="md:block hidden">{{ strlen($body) > 200 ?  mb_strimwidth($body, 0, 200, '...') : $body}}</p>
         </div>
     </div>
     <div class="flex flex-col w-full overflow-hidden">
-        <div class="flex items-center justify-center w-full h-48">
+        <div class="flex items-center justify-center w-full h-48 md:h-90">
             <img src="https://images.unsplash.com/photo-1746137334131-7f5d9ff816c3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="blog-image" class="w-full h-full object-cover"> 
         </div>
         <div class="flex items-center justify-between py-3">
