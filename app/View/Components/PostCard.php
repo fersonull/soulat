@@ -16,7 +16,7 @@ class PostCard extends Component
     public $body;
     public $image;
 
-    public function __construct($title, $author, $body, $image = [])
+    public function __construct($title, $author, $body, $image = '')
     {
         $this->title = $title;
         $this->author = $author;

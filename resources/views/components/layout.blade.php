@@ -21,6 +21,7 @@
     <body class="kanit-regular bg-[#F9F7F4] text-[#212529]">
         <div x-data="{ isToggled: false }"s class="min-h-screen flex flex-col relative">
 
+
             {{-- Nav --}}
             <div
                 x-data="{ route: '{{ request()->is('login') || request()->is('signup') || request()->is('create-post') }}' }"

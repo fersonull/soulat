@@ -32,7 +32,7 @@
                 </div>
                 <p class="">Sign up with Facebook</p>
             </a>
-            <a href="" class="flex items-center justify-center w-full rounded-full border p-1 px-2 relative">
+            <a href="{{ route('auth.email') }}" class="flex items-center justify-center w-full rounded-full border p-1 px-2 relative">
                 <div class="absolute left-0 p-2 rounded-full">
                     <i data-lucide="mail" class="w-5 h-5 left-2"></i>
                 </div>
