@@ -8,7 +8,6 @@ Route::get('/', [PostController::class, 'getAllPost']);
 
 
 // Post related routes
-Route::get('/create-post', [PostController::class, 'renderForm']);
 Route::post('/publish', [PostController::class, 'post']);
 
 // Auth related routes
