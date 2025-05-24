@@ -14,7 +14,29 @@ export default class Support {
         }
     }
 
+    static loadFIrst(callback) {
+        document.addEventListener('DOMContentLoaded', (e) => {
+            callback(e)
+        })
+    }
+
+    static toast(mesage) {
+        
+    }
+
     static get(elem) {
-        return document.getElementById(elem)
+        return document.getElementById(elem);
+    }
+
+    static click(elem, callback) {
+        this.get(elem)?.addEventListener('click', (e) => {
+            callback(e)
+        });
+    }
+
+    static submit(elem, callback) {
+        this.get(elem)?.addEventListener('submit', () => {
+
+        })
     }
 }

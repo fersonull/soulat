@@ -16,6 +16,7 @@ import './bootstrap';
 import { createIcons, icons } from 'lucide';
 import Support from './Support.js';
 import Alpine from 'alpinejs';
+import './api/blog.js';
 
 window.Alpine = Alpine;
 Alpine.start();
@@ -43,3 +44,6 @@ Support.get('image')?.addEventListener('change', (e) => {
     Support.previewImage(e)
 })
 
+Support.click('nav', (e) => {
+    // console.log(e.target)
+});

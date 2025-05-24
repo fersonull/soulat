@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [PostController::class, 'getAllPost']);
 
-Route::get('profile/{userID}', [UserController::class, 'viewProfile']);
+Route::get('/profile/{userID}', [UserController::class, 'viewProfile']);
 
 // Post related routes
 Route::post('/publish', [PostController::class, 'post']);

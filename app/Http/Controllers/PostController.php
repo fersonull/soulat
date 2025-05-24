@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -20,13 +21,11 @@ class PostController extends Controller
 
     public function post(Request $request)
     {
-
         $form = $request->validate([
             'title' => 'required|string',
             'content' => 'required|string',
             'images' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
         ]);
-
 
         if ($request->hasFile('images')) {
             $imagePath = $request->file('images')->store('images', 'public');
@@ -34,13 +33,14 @@ class PostController extends Controller
             $imagePath = null;
         }
 
-        Post::create([
+        $post = Post::create([
             'title' => $form['title'],
             'body' => $form['content'],
             'images' => $imagePath,
             'user_id' => auth()->id(),
         ]);
 
-        return back()->with('success', 'Post created!');
+        return response()->json(['post' => $post], 201);
+
     }
 }

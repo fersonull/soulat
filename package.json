@@ -16,6 +16,7 @@
     "dependencies": {
         "alpinejs": "^3.14.9",
         "lucide": "^0.511.0",
-        "tinymce": "^7.9.0"
+        "tinymce": "^7.9.0",
+        "toastify-js": "^1.12.0"
     }
 }
