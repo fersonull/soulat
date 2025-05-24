@@ -1,25 +1,11 @@
-import 'tinymce/tinymce';
-import 'tinymce/icons/default';
-import 'tinymce/themes/silver';
-import 'tinymce/models/dom';
-
-// Plugins (import only what you use)
-import 'tinymce/plugins/link';
-import 'tinymce/plugins/lists';
-import 'tinymce/plugins/code';
-
-// Skins and content CSS
-// import 'tinymce/skins/ui/oxide/skin.css';
-// import 'tinymce/skins/content/default/content.css';
-
 import './bootstrap';
 import { createIcons, icons } from 'lucide';
 import Support from './Support.js';
-import Alpine from 'alpinejs';
+// import Alpine from 'alpinejs';
 import './api/blog.js';
 
 window.Alpine = Alpine;
-Alpine.start();
+// Alpine.start();
 
 createIcons({ icons });
 
@@ -40,10 +26,12 @@ window.addEventListener("scroll", function() {
 }, false);
 
 
-Support.get('image')?.addEventListener('change', (e) => {
+Support.get('images')?.addEventListener('change', (e) => {
     Support.previewImage(e)
 })
 
 Support.click('nav', (e) => {
     // console.log(e.target)
 });
+
+console.log(window.Livewire)
