@@ -1,3 +1,17 @@
+import 'tinymce/tinymce';
+import 'tinymce/icons/default';
+import 'tinymce/themes/silver';
+import 'tinymce/models/dom';
+
+// Plugins (import only what you use)
+import 'tinymce/plugins/link';
+import 'tinymce/plugins/lists';
+import 'tinymce/plugins/code';
+
+// Skins and content CSS
+// import 'tinymce/skins/ui/oxide/skin.css';
+// import 'tinymce/skins/content/default/content.css';
+
 import './bootstrap';
 import { createIcons, icons } from 'lucide';
 import Support from './Support.js';

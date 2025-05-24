@@ -1,4 +1,4 @@
-export default class Support{
+export default class Support {
     static previewImage(e) {
         console.log(e.target.files[0]);
         const file = e.target.files[0];

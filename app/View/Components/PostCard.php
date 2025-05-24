@@ -13,13 +13,15 @@ class PostCard extends Component
      */
     public $title;
     public $author;
+    public $date;
     public $body;
     public $image;
 
-    public function __construct($title, $author, $body, $image = '')
+    public function __construct($title, $author, $date, $body, $image = '')
     {
         $this->title = $title;
         $this->author = $author;
+        $this->date = $date;
         $this->body = $body;
         $this->image = $image;
     }

@@ -13,7 +13,7 @@
                     {{ $author }}
                 </a>
                 <p class="text-sm text-stone-400">
-                    Apr 24, 2025
+                    {{ $date }}
                 </p>
             </div>
         </div>

@@ -6,6 +6,9 @@
 
         <title>Soulat</title>
 
+        {{-- Text editor API --}}
+        {{-- <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" /> --}}
+
         <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWFsYXJnZS1zbWFsbC1pY29uIGx1Y2lkZS1hLWxhcmdlLXNtYWxsIj48cGF0aCBkPSJNMjEgMTRoLTUiLz48cGF0aCBkPSJNMTYgMTZ2LTMuNWEyLjUgMi41IDAgMCAxIDUgMFYxNiIvPjxwYXRoIGQ9Ik00LjUgMTNoNiIvPjxwYXRoIGQ9Im0zIDE2IDQuNS05IDQuNSA5Ii8+PC9zdmc+">
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -26,9 +29,10 @@
             <div
                 x-data="{ route: '{{ request()->is('login') || request()->is('signup') || request()->is('create-post') }}' }"
                 x-show="!route"
+                class="sticky top-0"
             >
 
-                <nav id="nav" class="py-3 md:py-4 md:px-8 px-4 flex items-center justify-center bg-[#F9F7F4] sticky top-0 transition-all duration-200 z-20">
+                <nav id="nav" class="py-3 md:py-4 md:px-8 px-4 flex items-center justify-center bg-[#F9F7F4] transition-all duration-200">
                     <div class="flex items-center justify-between w-full">
     
                         <ul class="hidden md:flex uppercase text-sm">
@@ -92,5 +96,7 @@
                 </div>
             </footer>
         </div>
+
+        {{-- <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script> --}}
     </body>
 </html>
