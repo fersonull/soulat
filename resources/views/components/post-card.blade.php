@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center justify-center mb-8 border-b">
+<div class="flex flex-col items-center justify-center mb-8">
     <div class="flex flex-col items-start w-full">
         <a href="{{ $attributes->get('href') }}" class="poppins-bold font-bold text-2xl mb-1">
             {{ $title }}
@@ -9,7 +9,7 @@
                 <img src="https://placehold.co/100" alt="">
             </div>
             <div class="flex flex-col inter-regular text-sm items-start">
-                <a href="" class="font-bold">
+                <a href="/profile/{{ $userId }}" class="font-bold">
                     {{ $author }}
                 </a>
                 <p class="text-sm text-stone-400">

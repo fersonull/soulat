@@ -18,6 +18,13 @@ class UserController extends Controller
         return view('auth.signup.register');
     }
 
+    public function viewProfile($userID)
+    {
+        $user = User::find($userID);
+
+        return view('user.profile', ['user' => $user]);
+    }
+
     public function login(Request $request)
     {
         $credentials = $request->validate([

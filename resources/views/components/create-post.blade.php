@@ -1,4 +1,4 @@
-<form method="POST" action="/publish" enctype="multipart/form-data" class="z-40">
+<form method="POST" action="/publish" enctype="multipart/form-data" class="z-40 playfair-regular">
     @csrf
     <div class="flex items-center justify-end w-full sticky top-0 py-4 bg-[#F9F7F4]">
         <div class="flex items-center justfiy-end gap-3">
