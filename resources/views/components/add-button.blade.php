@@ -15,8 +15,8 @@
     </div>
     <div
         x-show="openEditor"
-        x-transition:enter="transition ease-out duration-500"
-        x-transition:enter-start="transform translate-y-full opacity-0"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="transform translate-y-full opacity-100"
         x-transition:enter-end="transform translate-y-0 opacity-100"
         x-transition:leave="transition ease-in duration-300"
         x-transition:leave-start="transform translate-y-0 opacity-100"

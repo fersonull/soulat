@@ -26,14 +26,8 @@
     </head>
     <body class="kanit-regular bg-[#F9F7F4] text-[#212529]">
         <div x-data="{ isToggled: false }"s class="min-h-screen flex flex-col relative">
-
-
             {{-- Nav --}}
-            <div
-                x-data="{ route: '{{ request()->is('login') || request()->is('signup') || request()->is('create-post') }}' }"
-                x-show="!route"
-                class="sticky top-0"
-            >
+            <div class="sticky top-0">
 
                 <nav id="nav" class="py-3 md:py-4 md:px-8 px-4 flex items-center justify-center bg-[#F9F7F4] transition-all duration-200">
                     <div class="flex items-center justify-between w-full">
@@ -45,25 +39,31 @@
                         </ul>
     
                         {{-- Mobile: sidebar button --}}
-                        <button class="flex items-center justify-center cursor-pointer md:hidden">
+                        {{-- <button class="flex items-center justify-center cursor-pointer md:hidden">
                             <i data-lucide="align-left" class="w-5 h-5"></i>
-                        </button>
+                        </button> --}}
+                        <div class="rounded-full h-6 ring w-6 overflow-hidden">
+                            <img src="/profile.jpg" alt="" class="object-cover">
+                        </div>
                         <a href="" class="text-3xl playfair-extrabold">
                             Soulat
                         </a>
-                        <button class="flex items-center justify-center cursor-pointer" x-on:click="isToggled = !isToggled">
-                            <i 
-                                x-show="!isToggled"
-                                data-lucide="search" class="w-5 h-5 pointer-events-none"
-                            >
-                            </i>
-                            <i 
-                                x-show="isToggled" 
-                                data-lucide="x" 
-                                class="w-5 h-5 pointer-events-none"
-                            >
-                            </i>
-                        </button>
+                        <div class="flex items-center justify-center gap-4">
+                            <i data-lucide="bell" class="w-5 h-5"></i>
+                            <button class="flex items-center justify-center cursor-pointer" x-on:click="isToggled = !isToggled">
+                                <i 
+                                    x-show="!isToggled"
+                                    data-lucide="search" class="w-5 h-5 pointer-events-none"
+                                >
+                                </i>
+                                <i 
+                                    x-show="isToggled" 
+                                    data-lucide="x" 
+                                    class="w-5 h-5 pointer-events-none"
+                                >
+                                </i>
+                            </button>
+                        </div>
                     </div>
                     <div
                         x-show="isToggled"
@@ -86,7 +86,7 @@
             
             {{-- Main content --}}
             <main
-                class="{{request()->is('login') || request()->is('signup') ? 'min-h-full px-8 py-4 flex-1 flex items-center justify-center' : 'min-h-full px-8 flex-1'}}"
+                class="min-h-full px-8 flex-1"
             >
                 {{ $slot }}
             </main>

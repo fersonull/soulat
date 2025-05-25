@@ -1,4 +1,4 @@
-<div>
+<div class="h-full">
     @foreach($posts as $post)
         <div class="flex flex-col items-center justify-center mb-8">
             <div class="flex flex-col items-start w-full">
@@ -7,8 +7,8 @@
                 </a>
 
                 <div class="flex items-center justify-center gap-2 mb-4">
-                    <div class="rounded-full overflow-hidden w-10 h-10">
-                        <img src="https://placehold.co/100" alt="">
+                    <div class="rounded-full overflow-hidden w-9 h-9">
+                        <img src="/profile.jpg" alt="">
                     </div>
                     <div class="flex flex-col inter-regular text-sm items-start">
                         <a href="/profile/{{ $post->user->id }}" class="font-bold">

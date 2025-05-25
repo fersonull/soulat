@@ -10,13 +10,10 @@
 
     <section class="md:grid md:grid-cols-3 gap-10">
         <div class="col-span-2">
-            
-
             <livewire:posts />
-
         </div>
         <div class="col-span-1 hidden">
-
+            {{-- side --}}
         </div>
     </section>
 </x-layout>

@@ -52,6 +52,10 @@
                     Create account...
                 </button>
             </form>
+
+            <a href="/signup" class="mt-4 text-sm underline">
+                More sign up options
+            </a>
         </div>
 
         {{-- <form method="POST" action="{{ route('auth.signup-email') }}">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class UserController extends Controller
@@ -45,13 +46,23 @@ class UserController extends Controller
             'email.email' => 'Invalid email address.'
         ]);
 
-        if (Auth::attempt($credentials)) {
+        $user = User::where('email', $credentials['email'])->first();
+
+        if (!$user) {
+            return back()->withErrors([
+                'email' => 'Email not found.',
+            ])->withInput();
+        }
+
+        if (Hash::check($credentials['password'], $user->password)) {
+            Auth::login($user);
             $request->session()->regenerate();
             return redirect()->intended('/');
         }
+
         return back()->withErrors([
-            'email' => 'Invalid credentials.',
-        ]);
+            'password' => 'Incorrect password.',
+        ])->withInput();
     }
 
     public function signupWitEmail(Request $request)
