@@ -14,14 +14,22 @@ export default class Support {
         }
     }
 
+
     static loadFIrst(callback) {
         document.addEventListener('DOMContentLoaded', (e) => {
             callback(e)
         })
     }
 
-    static toast(mesage) {
-        
+    static toast(message) {
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            html: message,
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+        });
     }
 
     static get(elem) {

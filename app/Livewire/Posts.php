@@ -14,7 +14,7 @@ class Posts extends Component
     
     public function render()
     {
-        $posts = Post::with('user')->latest()->get();
+       $posts = Post::with('user')->latest()->get();
         
         return view('livewire.posts', ['posts' => $posts]);
     }

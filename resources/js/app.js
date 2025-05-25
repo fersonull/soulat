@@ -29,9 +29,3 @@ window.addEventListener("scroll", function() {
 Support.get('images')?.addEventListener('change', (e) => {
     Support.previewImage(e)
 })
-
-Support.click('nav', (e) => {
-    // console.log(e.target)
-});
-
-console.log(window.Livewire)

@@ -10,6 +10,8 @@
     'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+[x-cloak] { display: none !important; }
+
 /* Playfair fonts */
 .playfair-regular {
   font-family: "Playfair", serif;

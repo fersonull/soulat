@@ -33,7 +33,7 @@ class CreatePost extends Component
             'images' => $imagePath,
         ]);
 
-        $this->dispatch('postCreated');
+        return $this->dispatch('postCreated');
     }
 
     public function render()

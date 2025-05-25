@@ -4,22 +4,20 @@ use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
-Route::get('/', [PostController::class, 'getAllPost']);
-
-Route::get('/profile/{userID}', [UserController::class, 'viewProfile']);
-
-// Post related routes
-Route::post('/publish', [PostController::class, 'post']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [PostController::class, 'getAllPost']);
+    Route::get('/profile/{userID}', [UserController::class, 'viewProfile']);
+    Route::post('/publish', [PostController::class, 'post']);
+});
 
 // Auth related routes
-Route::get('/login', [UserController::class, 'loginForm'])->name('auth.login');
-Route::post('/go-login', [UserController::class, 'login'])->name('auth.submit-login');
+Route::get('/login', [UserController::class, 'showLoginForm'])->name('login');
+Route::get('/login/with-email', [UserController::class, 'showEmailLogin'])->name('auth.login.email');
+Route::post('/login/with-email', [UserController::class, 'loginWithEmail'])->name('auth.login-email');
 
-Route::get('/signup/with-email', function() {
-    return view('auth.signup.email');
-})->name('auth.email');
+Route::get('/signup/with-email', [UserController::class, 'showEmailSignUp'])->name('auth.signup.email');
 
-Route::post('/signup/with-email/submit', [UserController::class, 'signupWitEmail'])->name('auth.signup-email');
+Route::post('/signup/with-email', [UserController::class, 'signupWitEmail'])->name('auth.signup-email');
 
-Route::get('/signup', [UserController::class, 'registerForm'])->name('auth.signup');
-Route::post('/go-signup', [UserController::class, 'register'])->name('auth.submit-register');
+Route::get('/signup', [UserController::class, 'showRegisterForm'])->name('signup');
+Route::post('/signup', [UserController::class, 'register'])->name('auth.signup');

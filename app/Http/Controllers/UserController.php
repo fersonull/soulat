@@ -8,12 +8,12 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function loginForm()
+    public function showLoginForm()
     {
         return view('auth.login.login');
     }
 
-    public function registerForm()
+    public function showRegisterForm()
     {
         return view('auth.signup.register');
     }
@@ -25,11 +25,24 @@ class UserController extends Controller
         return view('user.profile', ['user' => $user]);
     }
 
-    public function login(Request $request)
+
+    public function showEmailSignUp()
+    {
+        return view('auth.signup.email');
+    }
+
+    public function showEmailLogin()
+    {
+        return view('auth.login.email');
+    }
+    
+    public function loginWithEmail(Request $request)
     {
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required'
+        ], [
+            'email.email' => 'Invalid email address.'
         ]);
 
         if (Auth::attempt($credentials)) {
@@ -45,16 +58,19 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8'
+        ], [
+            'password.min' => 'Password must be at least 8 characters.'
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
 
-        return back();
+        Auth::login($user);
+        return back()->with(['success' => 'Registered succesfuly!']);
     }
 }
