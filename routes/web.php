@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [PostController::class, 'getAllPost']);
+    Route::get('/', [HomeController::class, 'show'])->name('home');
     Route::get('/profile/{userID}', [UserController::class, 'viewProfile']);
     Route::post('/publish', [PostController::class, 'post']);
 });
@@ -21,3 +22,5 @@ Route::post('/signup/with-email', [UserController::class, 'signupWitEmail'])->na
 
 Route::get('/signup', [UserController::class, 'showRegisterForm'])->name('signup');
 Route::post('/signup', [UserController::class, 'register'])->name('auth.signup');
+
+

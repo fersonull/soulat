@@ -11,11 +11,19 @@ class UserController extends Controller
 {
     public function showLoginForm()
     {
+        if (Auth::check()) {
+            return redirect()->route('home');
+        }
+
         return view('auth.login.login');
     }
 
     public function showRegisterForm()
     {
+        if (Auth::check()) {
+            return redirect()->route('home');
+        }
+
         return view('auth.signup.register');
     }
 
@@ -29,11 +37,19 @@ class UserController extends Controller
 
     public function showEmailSignUp()
     {
+        if (Auth::check()) {
+            return redirect()->route('home');
+        }
+
         return view('auth.signup.email');
     }
 
     public function showEmailLogin()
     {
+        if (Auth::check()) {
+            return redirect()->route('home');
+        }
+
         return view('auth.login.email');
     }
     
