@@ -7,8 +7,12 @@ use App\Http\Controllers\UserController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, 'show'])->name('home');
+
     Route::get('/profile/{userID}', [UserController::class, 'viewProfile']);
+
     Route::post('/publish', [PostController::class, 'post']);
+
+    Route::get('/post/{postId}', [PostController::class, 'getPost']);
 });
 
 // Auth related routes

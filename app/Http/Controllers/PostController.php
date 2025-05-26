@@ -15,6 +15,13 @@ class PostController extends Controller
         return view('create-post');
     }
 
+    public function getPost($postId)
+    {
+        $post = Post::with('user')->find($postId);
+
+        return view('posts.view', ['post' => $post]);
+    }
+
     public function getAllPost()
     {
         return view('home', ['posts' => Post::with('user')->latest()->get()]);

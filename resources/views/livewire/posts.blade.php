@@ -2,7 +2,7 @@
     @foreach($posts as $post)
         <div class="flex flex-col items-center justify-center mb-8">
             <div class="flex flex-col items-start w-full">
-                <a href="" class="poppins-bold font-bold text-2xl mb-1">
+                <a href="/post/{{ $post->id }}" class="poppins-bold font-bold text-2xl mb-1">
                     {{ $post->title }}
                 </a>
 
