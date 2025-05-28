@@ -26,7 +26,10 @@ window.addEventListener("scroll", function() {
 }, false);
 
 
-Support.get('images')?.addEventListener('change', (e) => {
-    Support.previewImage(e)
-})
+// Support.get('images')?.addEventListener('change', (e) => {
+//     Support.previewImage(e)
+// })
 
+document.addEventListener('postCreated', e => {
+    Support.toast('Post uploaded!')
+})

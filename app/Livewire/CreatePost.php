@@ -17,14 +17,14 @@ class CreatePost extends Component
     protected $rules = [
         'title' => 'required|string',
         'content' => 'required|string',
-        'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+        'image' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
     ];
 
     public function post()
     {
         $this->validate();
 
-        $imagePath = $this->image ? $this->image->store('images', 'public') : null;
+        $imagePath = $this->image->store('images', 'public');
 
         Post::create([
             'title' => $this->title,
@@ -32,7 +32,7 @@ class CreatePost extends Component
             'user_id' => auth()->user()->id,
             'images' => $imagePath,
         ]);
-
+        
         return $this->dispatch('postCreated');
     }
 

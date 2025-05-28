@@ -3,14 +3,18 @@ export default class Support {
         console.log(e.target.files[0]);
         const file = e.target.files[0];
         const previewContainer = this.get('imageContainer');
+        const partial = this.get('imagePartial');
+        const icon = this.get('error-icon');
         const preview = this.get('preview');
  
         if (file) {
             preview.src = URL.createObjectURL(file);
             previewContainer.style.display = 'block';
+            partial.style.display = 'none';
         } else {
             preview.src = '';
             previewContainer.style.display = 'none';
+            previewContainer.style.display = 'block';
         }
     }
 
@@ -22,7 +26,7 @@ export default class Support {
     }
 
     static toast(message) {
-        Swal.fire({
+        return Swal.fire({
             toast: true,
             position: 'top-end',
             html: message,
@@ -44,7 +48,7 @@ export default class Support {
 
     static submit(elem, callback) {
         this.get(elem)?.addEventListener('submit', () => {
-
+            
         })
     }
 }
