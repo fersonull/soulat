@@ -11,13 +11,22 @@ class Posts extends Component
     public $title;
     public $content;
     public $image;
+    public $posts = [];
     
+    protected $listeners = ['postCreated' => '$refresh'];
+
     public function render()
     {
-       $posts = Post::with('user')->latest()->get();
+        $this->posts = Post::with('comments.user')->latest()->get();
         
-        return view('livewire.posts', ['posts' => $posts]);
+        return view('livewire.posts', ['posts' => $this->posts]);
     }
 
-    protected $listeners = ['postCreated' => '$refresh'];
+
+    // public function loadPosts()
+    // {
+    //     sleep(2);
+    //     $this->posts = Post::with('user')->latest()->get();
+    // }
+
 }

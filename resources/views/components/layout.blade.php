@@ -9,6 +9,7 @@
 
         {{-- Text editor API --}}
         {{-- <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" /> --}}
+        
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
@@ -27,7 +28,7 @@
     <body class="kanit-regular bg-[#F9F7F4] text-[#212529]">
         <div x-data="{ isToggled: false }"s class="min-h-screen flex flex-col relative">
             {{-- Nav --}}
-            <div class="sticky top-0">
+            <div class="sticky top-0 z-10">
 
                 <nav id="nav" class="py-3 md:py-4 md:px-8 px-4 flex items-center justify-center bg-[#F9F7F4] transition-all duration-200">
                     <div class="flex items-center justify-between w-full">

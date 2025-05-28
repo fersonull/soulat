@@ -24,7 +24,9 @@ class PostController extends Controller
 
     public function getAllPost()
     {
-        return view('home', ['posts' => Post::with('user')->latest()->get()]);
+        $posts = Post::with('user')->latest()->get();
+
+        return view('home', ['posts' => $posts]);
     }
 
     public function post(Request $request)

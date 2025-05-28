@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Livewire\ViewPost;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Livewire\Posts;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, 'show'])->name('home');
@@ -12,7 +14,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/publish', [PostController::class, 'post']);
 
-    Route::get('/post/{postId}', [PostController::class, 'getPost']);
+    Route::get('/post/{postId}', [ViewPost::class, 'render']);
+
+    Route::get('/fetch-posts', [Posts::class, 'render']);
 });
 
 // Auth related routes

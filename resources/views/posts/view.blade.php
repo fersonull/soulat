@@ -2,7 +2,7 @@
 
     <section>
         <div class="flex flex-col gap-2">
-            <h1 class="text-3xl poppins-bold">
+            <h1 class="text-2xl poppins-bold">
                 {{ $post->title }}
             </h1>
             <div class="flex items-center justify-start gap-2">

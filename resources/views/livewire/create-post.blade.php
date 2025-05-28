@@ -1,5 +1,4 @@
-<div>
-
+<div x-cloak>
     <form wire:submit.prevent="post" method="POST" enctype="multipart/form-data" class="z-40 playfair-regular" id="blogForm">
         @csrf
         <div class="flex items-center justify-end w-full sticky top-0 py-4 bg-[#F9F7F4]">
@@ -16,7 +15,7 @@
             </div>
         </div>
         <div class="mt-5">
-            <div wire:ignore class="hidden items-center justify-center w-full h-40 md:h-90 mb-7" id="imageContainer">
+            <div wire:ignore class="hidden items-center justify-center w-full h-48 md:h-90 mb-7" id="imageContainer">
                 <img src="" alt="blog-image" class="w-full h-full object-cover" id="preview">
             </div>
             <div class="w-full">

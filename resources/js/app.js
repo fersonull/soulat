@@ -29,3 +29,4 @@ window.addEventListener("scroll", function() {
 Support.get('images')?.addEventListener('change', (e) => {
     Support.previewImage(e)
 })
+

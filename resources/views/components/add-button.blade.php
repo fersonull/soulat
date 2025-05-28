@@ -21,7 +21,7 @@
         x-transition:leave="transition ease-in duration-300"
         x-transition:leave-start="transform translate-y-0 opacity-100"
         x-transition:leave-end="transform translate-y-full opacity-0"
-        class="fixed top-0 left-0 w-screen h-screen bg-[#F9F7F4] px-4"
+        class="fixed top-0 left-0 w-screen h-screen bg-[#F9F7F4] px-4 z-20"
     >
         {{ $slot }}
     </div>
