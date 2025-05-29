@@ -10,7 +10,9 @@ class ViewPost extends Component
 
     public function render($postId)
     {
-        $post = Post::with('comments.user')->findOrFail($postId);
+        $post = Post::with(['comments' => function($q) {
+            $q->latest();
+        }, 'comments.user'])->findOrFail($postId);
 
         return view('livewire.view-post', ['post' => $post]);
     }

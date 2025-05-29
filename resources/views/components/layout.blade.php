@@ -38,7 +38,7 @@
     
                         <ul class="hidden md:flex uppercase text-sm">
                             <li>
-                                <a href="">Home</a>
+                                <a href="/">Home</a>
                             </li>
                         </ul>
     
@@ -49,7 +49,7 @@
                         <div class="rounded-full h-6 ring w-6 overflow-hidden">
                             <img src="/profile.jpg" alt="" class="object-cover">
                         </div>
-                        <a href="" class="text-3xl playfair-extrabold">
+                        <a href="/" class="text-3xl playfair-extrabold">
                             Soulat
                         </a>
                         <div class="flex items-center justify-center gap-4">
