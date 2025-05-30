@@ -33,6 +33,9 @@ export default class Support {
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
+            customClass: {
+                popup: 'toast-modal'
+            }
         });
     }
 

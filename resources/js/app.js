@@ -1,13 +1,17 @@
 import './bootstrap';
 import { createIcons, icons } from 'lucide';
 import Support from './Support.js';
-// import Alpine from 'alpinejs';
-import './api/blog.js';
+import Alpine from 'alpinejs';
+// import './api/blog.js';
 
-window.Alpine = Alpine;
-// Alpine.start();
+// window.Alpine = Alpine;
 
-createIcons({ icons });
+createIcons({
+    icons,
+    attrs: {
+        'stroke-width': 1.5 
+    }
+});
 
 let lastScrollTop = 0;
 const nav = document.getElementById('nav');
@@ -33,3 +37,7 @@ window.addEventListener("scroll", function() {
 document.addEventListener('postCreated', e => {
     Support.toast('Post uploaded!')
 })
+
+// document.addEventListener('invalidImageFormat', e => {
+//     Support.toast('Something went wrong.')
+// })

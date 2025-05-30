@@ -1,7 +1,6 @@
 <div 
     x-data="{ openEditor: false }"
     x-effect="document.body.style.overflow = openEditor ? 'hidden' : 'auto'"
-    x-on:postCreated.window="openEditor = false"
 >
     <div
         class="fixed bottom-4 right-4 z-30"

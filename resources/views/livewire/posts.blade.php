@@ -41,7 +41,7 @@
             </div>
         @else
             @foreach($posts as $post)
-                <div class="flex flex-col items-center justify-center mb-8">
+                <div class="flex flex-col items-center justify-center mb-8 p-2 rounded-xl">
                     <div class="flex flex-col items-start w-full">
                         <a href="/post/{{ $post->id }}" class="poppins-bold font-bold text-2xl mb-1">
                             {{ $post->title }}
@@ -56,8 +56,14 @@
                                 <img src="/profile.jpg" alt="">
                             </div>
                             <div class="flex flex-col inter-regular text-sm items-start">
-                                <a href="/profile/{{ $post->user->id }}" class="font-bold">
+                                <a href="/profile/{{ $post->user->id }}" class="font-bold flex items-center justify-center gap-1">
                                     {{ $post->user->name }}
+
+                                    @if (config('cons.whoswhoj') == $post->user->id)
+                                        <span class="h-4 w-4">
+                                            <i data-lucide="sparkles" class="w-4 h-4 text-red-900"></i>
+                                        </span>
+                                    @endif
                                 </a>
                                 <p class="text-sm text-stone-400">
                                     {{ $post->created_at->diffInSeconds() < 60 ? 'Just now' : $post->created_at->diffForHumans()}}
@@ -72,16 +78,16 @@
                     </div>
                     <div class="flex flex-col w-full overflow-hidden">
                         @if ($post->images)
-                            <div class="flex items-center justify-center w-full h-48 md:h-90">
+                            <div class="flex items-center justify-center w-full h-48 md:h-90 rounded-lg overflow-hidden">
                                 <img src="{{ asset("storage/$post->images") }}" alt="blog-image" class="w-full h-full object-cover"> 
                             </div>
                         @endif
                         <div class="flex items-center justify-between py-3">
                             <p class="text-sm inter-regular flex items-center justify-center gap-1 font-thin">
-                                <span>
-                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" /></svg>
+                                <span wire:ignore>
+                                    <i wire:ignore data-lucide="message-circle" class="w-4 h-4"></i>
                                 </span>
-                                <span class="font-semibold">
+                                <span>
                                     {{ count($post->comments) }}
                                 </span>
                             </p>

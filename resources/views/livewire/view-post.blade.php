@@ -60,6 +60,7 @@
             </div>
         </div>
 
+        {{-- Comments --}}
         <div class="flex flex-col items-start inter-regular text-sm mb-8">
             @foreach ($post->comments as $comment)
                 <div class="flex items-end justify-center gap-1 mb-3">
@@ -70,12 +71,12 @@
                     </div>
                     <div class="rounded-lg flex-1 flex flex-col rounded-bl-none px-3 py-1 bg-stone-200">
                         <div class="text-xs font-bold flex gap-1 items-center {{ auth()->user()->id === $comment->user->id ?  'text-blue-600' : 'text-black'}}">
+                            {{ $comment->user->name }}
                             @if ($comment->user_id === $post->user->id)
                                 <span class="font-normal text-xs text-black">
-                                    <i data-lucide="feather" class="w-3 h-3"></i>
+                                    <i data-lucide="user-pen" class="w-4 h-4"></i>
                                 </span>
                             @endif
-                            {{ $comment->user->name }}
                         </div>
                         {{ $comment->body }}
                     </div>

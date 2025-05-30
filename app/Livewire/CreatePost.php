@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Livewire;
+use Illuminate\Validation\ValidationException;
 use Livewire\WithFileUploads;
 use App\Models\Post;
 use Illuminate\Http\Client\Request;
@@ -17,12 +18,17 @@ class CreatePost extends Component
     protected $rules = [
         'title' => 'required|string',
         'content' => 'required|string',
-        'image' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
+        'image' => 'required|image|mimes:jpg,jpeg,png,gif',
     ];
 
     public function post()
     {
-        $this->validate();
+        $this->validate($this->rules, [
+            'title' => 'required',
+            'content' => 'required',
+            'image' => 'required',
+            'image.image' => 'invalid format',
+        ]);
 
         $imagePath = $this->image->store('images', 'public');
 
@@ -33,6 +39,7 @@ class CreatePost extends Component
             'images' => $imagePath,
         ]);
         
+        $this->reset(['title', 'content', 'image']);
         return $this->dispatch('postCreated');
     }
 

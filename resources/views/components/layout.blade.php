@@ -18,7 +18,9 @@
 
         <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWFsYXJnZS1zbWFsbC1pY29uIGx1Y2lkZS1hLWxhcmdlLXNtYWxsIj48cGF0aCBkPSJNMjEgMTRoLTUiLz48cGF0aCBkPSJNMTYgMTZ2LTMuNWEyLjUgMi41IDAgMCAxIDUgMFYxNiIvPjxwYXRoIGQ9Ik00LjUgMTNoNiIvPjxwYXRoIGQ9Im0zIDE2IDQuNS05IDQuNSA5Ii8+PC9zdmc+">
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        {{-- Icons --}}
+
+        @vite(['resources/css/app.css', 'resources/css/fonts.css', 'resources/css/icons.css', 'resources/js/app.js'])
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -90,7 +92,7 @@
             
             {{-- Main content --}}
             <main
-                class="min-h-full px-8 flex-1"
+                class="min-h-full px-6 flex-1"
             >
                 {{ $slot }}
             </main>
