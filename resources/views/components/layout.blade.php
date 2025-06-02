@@ -20,7 +20,7 @@
 
         {{-- Icons --}}
 
-        @vite(['resources/css/app.css', 'resources/css/fonts.css', 'resources/css/icons.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/css/fonts.css', 'resources/js/app.js'])
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -72,6 +72,7 @@
                         </div>
                     </div>
                     <div
+                        x-cloak
                         x-show="isToggled"
                         x-transition:enter="transition ease-out duration-300"
                         x-transition:enter-start="opacity-0 scale-90"

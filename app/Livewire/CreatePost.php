@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Livewire;
+
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Livewire\WithFileUploads;
 use App\Models\Post;
@@ -32,10 +35,16 @@ class CreatePost extends Component
 
         $imagePath = $this->image->store('images', 'public');
 
-        Post::create([
+        // Post::create([
+        //     'title' => $this->title,
+        //     'body' => $this->content,
+        //     'user_id' => auth()->user()->id,
+        //     'images' => $imagePath,
+        // ]);
+
+        Auth::user()->post()->create([
             'title' => $this->title,
             'body' => $this->content,
-            'user_id' => auth()->user()->id,
             'images' => $imagePath,
         ]);
         

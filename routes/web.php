@@ -14,7 +14,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/publish', [PostController::class, 'post']);
 
-    Route::get('/post/{postId}', [ViewPost::class, 'render']);
+    Route::get('/post/{postId}', [PostController::class, 'getPost']);
 
     Route::get('/fetch-posts', [Posts::class, 'render']);
 });

@@ -17,9 +17,9 @@ class PostController extends Controller
 
     public function getPost($postId)
     {
-        $post = Post::with('user')->find($postId);
+        $post = Post::findOrFail($postId);
 
-        return view('posts.view', ['post' => $post]);
+        return view('posts.view', ['postId' => $post->id]);
     }
 
     public function getAllPost()

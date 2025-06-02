@@ -2,15 +2,35 @@ import './bootstrap';
 import { createIcons, icons } from 'lucide';
 import Support from './Support.js';
 import Alpine from 'alpinejs';
-// import './api/blog.js';
+import './api/blog.js';
+import './api/axios.js';
 
 // window.Alpine = Alpine;
 
-createIcons({
-    icons,
-    attrs: {
-        'stroke-width': 1.5 
-    }
+
+// createIcons({
+//     icons,
+//     attrs: {
+//         'stroke-width': 1.5 
+//     }
+// });
+
+document.addEventListener('DOMContentLoaded', () => {
+    createIcons({ icons });
+    console.log('hehe')
+});
+
+document.addEventListener('livewire:load', () => {
+    Livewire.hook('message.processed', () => {
+        console.log('livewire loaded')
+
+        createIcons({
+            icons,
+            attrs: {
+                'stroke-width': 1.5 
+            }
+        });
+    });
 });
 
 let lastScrollTop = 0;
