@@ -11,14 +11,9 @@ class CommentController extends Controller
     {
         // return view();
 
-        return response()->json([
+        return view('components.comments', [
             'succes' => true,
             'comments' => Comment::with('user.post')->latest()->get()
         ]);
-    }
-
-    public function show()
-    {
-        return view('components.comments');
     }
 }
