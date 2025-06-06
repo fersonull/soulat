@@ -1,13 +1,17 @@
 <x-auth-layout>
     <div x-data="{ attempted: false }" class="h-full inter-regular max-w-82 w-full">
         <div class="flex flex-col items-center justify-center">
-            <h1 class="text-3xl playfair-extrabold mb-2">
+            <h1 class="playfair-extrabold text-2xl">
                 Soulat
             </h1>
-
-            <p class="playfair-regular text-3xl">
-                Create your account
-            </p>
+            <div class="text-center">
+                <p class="text-5xl playfair-extrabold">
+                    Start creating new ideas.
+                </p>
+                <p class="text-sm">
+                    Discover perspectives that deepens understanding.
+                </p>
+            </div>
 
             <form action="{{ route('auth.signup-email') }}" method="POST" class="mt-7 w-full">
                 @csrf
@@ -53,22 +57,9 @@
                 </button>
             </form>
 
-            <a href="/signup" class="mt-4 text-sm underline">
-                More sign up options
+            <a href="{{ route("auth.login.email") }}" class="mt-4 text-sm underline">
+                Sign in with my account
             </a>
         </div>
-
-        {{-- <form method="POST" action="{{ route('auth.signup-email') }}">
-            @csrf
-            <input type="text" name="name" placeholder="name">
-            <input type="email" name="email" placeholder="email">
-            <input type="password" name="password" placeholder="password">
-            <button>
-                register
-            </button>
-        </form> --}}
-
-        
-        
     </div>
 </x-auth-layout>

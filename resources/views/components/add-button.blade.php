@@ -3,6 +3,12 @@
     x-effect="document.body.style.overflow = openEditor ? 'hidden' : 'auto'"
     x-on:postCreated.window="openEditor = false"
 >
+
+    <div x-data="{ message: '' }" @post-created.window="message = $event.detail.message">
+        <p x-text="message"></p>
+    </div>
+
+
     <div
         class="fixed bottom-4 right-4 z-30"
     >

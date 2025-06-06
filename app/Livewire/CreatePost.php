@@ -21,7 +21,7 @@ class CreatePost extends Component
     protected $rules = [
         'title' => 'required|string',
         'content' => 'required|string',
-        'image' => 'required|image|mimes:jpg,jpeg,png,gif',
+        'image' => 'required|image|mimes:jpg,jpeg,png',
     ];
 
     public function post()
@@ -35,14 +35,8 @@ class CreatePost extends Component
 
         $imagePath = $this->image->store('images', 'public');
 
-        // Post::create([
-        //     'title' => $this->title,
-        //     'body' => $this->content,
-        //     'user_id' => auth()->user()->id,
-        //     'images' => $imagePath,
-        // ]);
-
-        Auth::user()->post()->create([
+        Post::create([
+            'user_id' => Auth::user()->id,
             'title' => $this->title,
             'body' => $this->content,
             'images' => $imagePath,

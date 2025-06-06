@@ -17,7 +17,7 @@ class Posts extends Component
 
     public function mount()
     {
-        // sleep(3);
+        // $this->posts = $posts;
     }
 
     public function placeholder()
@@ -68,8 +68,8 @@ class Posts extends Component
 
     public function render()
     {
-        $this->posts = Post::with('comments.user')->latest()->get();
-        
+        $this->posts = Post::with('user.comments')->latest()->get();
+
         return view('livewire.posts', ['posts' => $this->posts]);
     }
 
