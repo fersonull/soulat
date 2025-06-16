@@ -53,9 +53,7 @@
                         @endif
                         <div class="flex items-center justify-between py-3">
                             <p class="text-sm inter-regular flex items-center justify-center gap-1 font-thin">
-                                <span wire:ignore>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-                                </span>
+                                <i class="bx bx-message-circle font-medium"></i>
                                 <span>
                                     {{ count($post->comments) }}
                                 </span>

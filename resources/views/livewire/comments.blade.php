@@ -13,7 +13,7 @@
                         {{ $comment->user->name }}
                         @if ($comment->user_id === $post->user->id)
                             <span class="font-normal text-xs text-black">
-                                <i data-lucide="user-pen" class="w-4 h-4"></i>
+                                <i class="bx bx-pencil-sparkles"></i>
                             </span>
                         @endif
                     </div>
@@ -22,6 +22,10 @@
             </div>
         @endforeach
     @else
-        No comments.
+        <div class="flex items-center justify-center w-full">
+            <p class="text-md text-gray-400">
+                Be the first to comment.
+            </p>
+        </div>
     @endif
 </div>
